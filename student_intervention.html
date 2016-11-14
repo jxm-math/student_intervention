@@ -11852,14 +11852,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;yes&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -11868,6 +11868,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;no&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
 <span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">n_students</span>
 
 <span class="c1"># Print the results</span>
@@ -11889,10 +11890,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11915,7 +11916,7 @@ Graduation rate of the class: 67.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11997,7 +11998,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12068,13 +12069,12 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
 
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
 
 <span class="c1"># TODO: Set the number of training points</span>
 <span class="n">num_train</span> <span class="o">=</span> <span class="mi">300</span>
@@ -12241,7 +12241,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12314,7 +12314,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12355,58 +12355,58 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0030 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0200 seconds
+Made predictions in 0.0020 seconds.
 F1 score for training set: 0.8346.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0020 seconds.
 F1 score for test set: 0.7402.
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0030 seconds
+Trained model in 0.0040 seconds
 Made predictions in 0.0020 seconds.
 F1 score for training set: 0.7879.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0020 seconds.
 F1 score for test set: 0.6446.
 Training a GaussianNB using a training set size of 300. . .
 Trained model in 0.0040 seconds
-Made predictions in 0.0020 seconds.
+Made predictions in 0.0030 seconds.
 F1 score for training set: 0.7921.
 Made predictions in 0.0010 seconds.
 F1 score for test set: 0.6720.
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.1130 seconds
-Made predictions in 0.0640 seconds.
+Trained model in 0.1590 seconds
+Made predictions in 0.0650 seconds.
 F1 score for training set: 0.8529.
 Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7737.
 Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0110 seconds
+Trained model in 0.0060 seconds
 Made predictions in 0.0010 seconds.
 F1 score for training set: 0.8269.
-Made predictions in 0.0070 seconds.
+Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7857.
 Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0100 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0080 seconds
+Made predictions in 0.0000 seconds.
 F1 score for training set: 0.8337.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7368.
 Training a AdaBoostClassifier using a training set size of 100. . .
-Trained model in 0.3050 seconds
+Trained model in 0.3090 seconds
 Made predictions in 0.0140 seconds.
 F1 score for training set: 0.9624.
 Made predictions in 0.0130 seconds.
 F1 score for test set: 0.6949.
 Training a AdaBoostClassifier using a training set size of 200. . .
-Trained model in 0.2480 seconds
-Made predictions in 0.0180 seconds.
+Trained model in 0.2420 seconds
+Made predictions in 0.0160 seconds.
 F1 score for training set: 0.8633.
-Made predictions in 0.0130 seconds.
+Made predictions in 0.0140 seconds.
 F1 score for test set: 0.7647.
 Training a AdaBoostClassifier using a training set size of 300. . .
-Trained model in 0.2760 seconds
-Made predictions in 0.0200 seconds.
+Trained model in 0.3800 seconds
+Made predictions in 0.0430 seconds.
 F1 score for training set: 0.8578.
-Made predictions in 0.0120 seconds.
+Made predictions in 0.0210 seconds.
 F1 score for test set: 0.8116.
 </pre>
 </div>
@@ -12582,8 +12582,11 @@ F1 score for test set: 0.8116.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong>The AdaBoostClassifier <strong>tries and plays with lots of possible classifiers</strong>, which on their own may be quite poor, and <strong>combines</strong> (<em>ensembles</em>) them to get a really good classifier. For the 'weak classifiers', <strong>it studies their accuracy (how well they perform) and their interrelationship (whether they are 'looking' at the same features)</strong>. The initial routine to choose, try and study the possible classifiers consists in <strong>executing a loop, where in each step the missclassified training items are given more importance, for the next classifiers to perform better on those</strong>.</p>
-<p>Some ideas taken form [Warren Smith, <em>What is AdaBoost?</em>, <a href="https://www.quora.com/What-is-AdaBoost">https://www.quora.com/What-is-AdaBoost</a>]</p>
+<p><strong>Answer: </strong></p>
+<p>AdaBoost is a Machine Learning algorithm which constructs a classifier, that is, an object that has learnt from some bunch of data and attempts to classify which class a new data element belongs to (in our case, tries to learn from the student data so that it makes a fairly good prediction of whether some new student needs early intervention or not).</p>
+<p>For this to be done, AdaBoost tries lots of 'weak learners', that is, some classifiers that may not be very accurate (usually Decision Trees with few branches - simply ask some 'Yes/No' questions to some characteristics (features) of the new student). Each time AdaBoost tries some new weak learner, it takes into account which students in our given data are missclassified, and makes them 'more important' to ensure that the next weak learner will do better with these.</p>
+<p>Finally, after having made a long list of weak learners, AdaBoost 'wisely' combines them; for the combination to be very effective it takes into account some 'success parameters' that appear during the construction of the list of weak learners. So when AdaBoost has a new student to classify, it sees what each weak learner 'says' about this student, and 'wisely' ponderates these 'opinions' to give its final decision.</p>
+<p>Some ideas taken form [Warren Smith, <em>What is AdaBoost?</em>, <a href="https://www.quora.com/What-is-AdaBoost">https://www.quora.com/What-is-AdaBoost</a>] and [raily.net, <a href="https://rayli.net/blog/data/top-10-data-mining-algorithms-in-plain-english/#7_AdaBoost">https://rayli.net/blog/data/top-10-data-mining-algorithms-in-plain-english/#7_AdaBoost</a>]</p>
 
 </div>
 </div>
